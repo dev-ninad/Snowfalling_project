@@ -1,0 +1,71 @@
+
+@keyframes fall {
+  from {}
+  to {
+    transform: translateY(100vh);
+    opacity:0;
+  }
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  left: calc(50% - 5px);
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall 5s linear infinite;
+}
+
+.snow-animation .snowflake {
+  animation: fall 5s linear infinite !important;
+}
+
+
+body {
+  background-color: #256375;
+}
+
+h1 {
+  color: white;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 20%;
+  opacity: 0.6;
+  font-size: 80px;
+}
+
+#toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #9ec3dd;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+@media(max-width:740px) {
+  h1{
+    font-size: 50px;
+  }
+}
+
+@media(max-width:460px) {
+  h1{
+    font-size: 30px;
+  }
+}
+
+@media(max-width:280px) {
+  h1{
+    font-size: 20px;
+  }
+}
+
