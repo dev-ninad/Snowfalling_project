@@ -1,9 +1,13 @@
 const MinDuration = 5; // Minimum duration for snowflake animation
 const body = document.querySelector("body"); //select body
-const toggleButton = document.querySelector("#toggle"); //selet toggle btn
+const toggleButton = document.querySelector("#toggle"); //select toggle btn
 let snowInterval = null;
-
+const nightbtn = document.querySelector("#mode-toggle") //select night btn
 let isAnimationEnabled = false; // Flag to track the animation state
+
+nightbtn.addEventListener('click', () => {
+  body.classList.toggle('night');
+});
 
 toggleButton.addEventListener("click", () => {
   const snowflakes = document.querySelectorAll(".snowflake");
@@ -29,6 +33,15 @@ function makeSnow() {
   snowflake.style.animation = `fall ${duration}s linear`
   snowflake.style.animationDelay = `${delay}s`;
 
+  // Add event listener to snowflake element
+snowflake.addEventListener("mouseover", () => {
+  snowflake.classList.add("hovered"); // Add class to change size on hover
+});
+
+snowflake.addEventListener("mouseout", () => {
+  snowflake.classList.remove("hovered"); // Remove class to revert size after hover
+});
+
   body.appendChild(snowflake);// Append the snowflake to the body
 
   setTimeout(() => {
@@ -41,6 +54,6 @@ body.addEventListener("animationend", () => {
   makeSnow();
 });
 
-snowInterval = setInterval(makeSnow, 100); // Interval to continuously create new snowflakes
+snowInterval = setInterval(makeSnow, 200); // Interval to continuously create new snowflakes
 
 
